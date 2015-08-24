@@ -1,7 +1,17 @@
 //1. take turns 
 	//a-declare variables "player1" "player2" "counter"
+var turn= 0;
+	player1 = "";
+	player2 = "";
 
-
+function takeTurn(){
+	if (turn%2 === 0){
+		console.log("Player 1's turn");
+	} else {
+		console.log("Player 2's turn");
+	}
+	turn++
+}
 //2.Create event listener for cliking a side 
 	//a.event listener changes color to black
 	//b.not able to be clicked twice 
@@ -11,7 +21,7 @@
 
 
 //3.function to check if box is complete 
-	//a. fill in box event listener 
+	//a. fill in box event listener different colors per player 
 	//b. check if there is a winner (4)
 	//c. if box is complete, then player who just completed box gets another turn 
 
@@ -19,3 +29,6 @@
 	//check for tie 
 	//a.reset button 
 	//b.alert winner 
+
+
+///smnasffdsfsdfderyerty
