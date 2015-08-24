@@ -12,10 +12,13 @@ function takeTurn(){
 	}
 	turn++
 }
+//need to fix because does not account for getting another turn if complete a box
+
 //2.Create event listener for cliking a side 
 	//a.event listener changes color to black
 	//b.not able to be clicked twice 
 	//c. skip to step three 
+var 
 
 
 

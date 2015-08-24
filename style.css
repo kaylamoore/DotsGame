@@ -2,8 +2,10 @@ body {
 	background-image: url("http://i60.tinypic.com/ae4a5d.jpg");
 }
 
-.board {
-
+.container {
+	position: absolute;
+	left: 50%;
+	margin-left: -390px;
 }
 
 h3 {
@@ -22,7 +24,7 @@ div{
   width:20px;
   border:thin solid black;
   float:left;
-  background-color: white;
+  background-color: rgba(255,255,255,.8);
 
 }
 .clear{
