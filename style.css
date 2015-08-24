@@ -1,39 +1,42 @@
 body {
-	background-color: #CC99FF;
+	background-image: url("http://i60.tinypic.com/ae4a5d.jpg");
 }
 
 .board {
+
 }
 
 h3 {
 	text-align: center;
-	font: arial black;
+	font: Verdana;
 	font-size: 40px;
-	font-color: pink;
+	color: white;
 }
 
-table {
-    border: 1px solid black;
-    text-align: center;
-}
+section{
+	width: 779px;
 
-li {
-	list-style: none;
-	display: inline;
-	padding: 30px;
 }
+div{
+  height:20px;
+  width:20px;
+  border:thin solid black;
+  float:left;
+  background-color: white;
 
-ul {
-	padding: 30px;
 }
-
-hr {
-	position: absolute;
-	width: 40px;
-	left: 50px;
-	top: 25px;
+.clear{
+  clear:both;
+  width:0; height:0;
+  border:none;
 }
-
-.row1 {
-	position: relative;
+.hl{
+  width:100px;
+}
+.vl{
+  height:100px;
+}
+.box {
+  width: 100px;
+  height: 100px;
 }
