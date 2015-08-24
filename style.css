@@ -1,0 +1,39 @@
+body {
+	background-color: #CC99FF;
+}
+
+.board {
+}
+
+h3 {
+	text-align: center;
+	font: arial black;
+	font-size: 40px;
+	font-color: pink;
+}
+
+table {
+    border: 1px solid black;
+    text-align: center;
+}
+
+li {
+	list-style: none;
+	display: inline;
+	padding: 30px;
+}
+
+ul {
+	padding: 30px;
+}
+
+hr {
+	position: absolute;
+	width: 40px;
+	left: 50px;
+	top: 25px;
+}
+
+.row1 {
+	position: relative;
+}
