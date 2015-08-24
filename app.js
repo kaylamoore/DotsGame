@@ -18,8 +18,8 @@ function takeTurn(){
 	//a.event listener changes color to black
 	//b.not able to be clicked twice 
 	//c. skip to step three 
-var 
-
+var sides = document.querySelectorAll("");
+	button = document.querySelector("button");
 
 
 
@@ -31,7 +31,10 @@ var
 //4 checkWinner
 	//check for tie 
 	//a.reset button 
+$("#reset").on("click", function(){
+  console.log(this);
+  $(".box").empty();
+});
 	//b.alert winner 
 
 
-///smnasffdsfsdfderyerty

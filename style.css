@@ -42,3 +42,11 @@ div{
   width: 100px;
   height: 100px;
 }
+
+button {
+	display: inline-block;
+	margin-left: 390px;
+	margin-right: 390px;
+	margin-top: 790px;
+	width: 779px;
+}
