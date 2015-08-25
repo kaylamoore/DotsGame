@@ -4,6 +4,8 @@ var turn= 0;
 	player1 = "";
 	player2 = "";
 
+	var d = $('.sides');
+
 function takeTurn(){
 	if (turn%2 === 0){
 		console.log("Player 1's turn");
@@ -18,9 +20,16 @@ function takeTurn(){
 	//a.event listener changes color to black
 	//b.not able to be clicked twice 
 	//c. skip to step three 
-var sides = document.querySelectorAll("");
-	button = document.querySelector("button");
+// var sides = $('.sides');
+// 	button = document.querySelector("button");
 
+$('.sides').on("click", function(){
+	if ($(this).css('background-color', 'white')){
+		$(this).css('background-color', 'red');
+	} else {
+		alert("Side already selected.");
+	}
+});
 
 
 //3.function to check if box is complete 
