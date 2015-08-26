@@ -29,3 +29,16 @@ body {
   top:50%;
   left: 15%;
 }
+
+.stitchedHorizontal {
+   width: 95px;
+   height: 8px;
+   background: #ff0030;
+   color: #fff;
+   border: 1px dashed #fff;
+   border-radius: 2px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   opacity : 0;
+   
+}
