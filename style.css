@@ -1,52 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
-	background-image: url("http://i60.tinypic.com/ae4a5d.jpg");
-}
-
-.container {
-	position: absolute;
-	left: 50%;
-	margin-left: -390px;
-}
-
-h3 {
-	text-align: center;
-	font: Verdana;
-	font-size: 40px;
-	color: white;
-}
-
-section{
-	width: 779px;
-
-}
-div{
-  height:20px;
-  width:20px;
-  border:thin solid black;
-  float:left;
-  background-color: white;
-
-}
-.clear{
-  clear:both;
-  width:0; height:0;
-  border:none;
-}
-.hl{
-  width:100px;
-}
-.vl{
-  height:100px;
-}
-.box {
-  width: 100px;
-  height: 100px;
-}
-
-button {
-	display: inline-block;
-	margin-left: 390px;
-	margin-right: 390px;
-	margin-top: 790px;
-	width: 779px;
+  background-color: #fff;
+  background: url("Background-radial-gradient-dark.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
