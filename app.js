@@ -112,7 +112,7 @@
 			console.log("running Box.isReady()")
 
 			var count = this.edge1.isVisible + this.edge2.isVisible + this.edge3.isVisible + this.edge4.isVisible;
-			if(count === 3) return true;
+			if(count === 4) return true;
 			else return false;
 //edge is ready to be filled when there is only one side  not visible 
 		}
@@ -370,6 +370,7 @@
 
 		if (g_GameOver) return;
 //flag usage; when this condition becomes true 
+		console.log(this);
 		if(this.id.charAt(0) === 'h'){
 //know whether or not it is horizontal or vetical, strip the first letter 
 //id.character.at h or v 
@@ -422,13 +423,14 @@
 //divs need to start at the start point x and y, definied up top 			
 			newDiv.style.top = horzEdgeList[i].start.y;
 			
-			newDiv.addEventListener('click', toEdge, false);
-			
 			document.body.appendChild(newDiv);
 
 		}
 //same notes as above for these 
 		for(var i = 0; i< vertEdgeList.length; i++){
+
+			//var newDivHTML = "<div id='v"+i+"' class='stitchedVertical' style='left:" + vertEdgeList[i].start.x + "; top:"+vertEdgeList[i].start.y + " ;' ></div>";
+			//document.body.innerHTML += newDivHTML;
 
 			var newDiv = document.createElement('div');
 			
@@ -442,11 +444,17 @@
 			
 			newDiv.style.top = vertEdgeList[i].start.y;
 			
-			newDiv.addEventListener('click', toEdge, false);
-			
 			document.body.appendChild(newDiv);
 
 		}
+
+		//delegate event listener
+		document.body.addEventListener("click", function (e) {
+			if( e.target.classList.contains("stitchedVertical") || e.target.classList.contains("stitchedHorizontal") ) {
+				toEdge.call( e.target );
+			}
+//e is event object 
+		})
 		
 	}
 
