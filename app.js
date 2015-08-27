@@ -301,6 +301,7 @@
 		player1IsPlaying = !player1IsPlaying;
 	}
 //simpler way to write x%2 using 'toggle'/flag 
+//player who completes a box needs to get to take another turn ***
 
 //gets called when you complete an edge 
 	function nextMove(){
@@ -348,6 +349,10 @@
 
 	
 //creating divs through javascript 
+//http://stackoverflow.com/questions/6840326/how-can-i-create-and-style-a-div-using-javascript
+//make edges appear through javascript when they are clicked on
+//http://stackoverflow.com/questions/11395370/javascript-functions-to-show-and-hide-divs
+
 //dom manipulation 
 	function InitializeDOM(horzEdgeList, vertEdgeList){
 
