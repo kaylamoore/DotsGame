@@ -15,6 +15,7 @@
 	var DOTGAP = 100; 
 //layout //evenly spaced dots not too close together 
 	var player1IsPlaying = true;
+//need this for taking turns 
 	var g_PlayerScore = 0;
 	var g_ComputerScore = 0;
 	var g_GameOver = false;
@@ -61,7 +62,10 @@
 		if(player1IsPlaying) return fillStyles.player1;
 		else return fillStyles.player2;
 	}
+//check to see if player 1 is playing and if so return fillStyles player 1
+//if not return fillStyeles player 2 blue 
 
+//?
 	function Edge(start, end){
 		this.start = start;
 		this.end = end;
@@ -81,6 +85,8 @@
 
 	function Box(edge1, edge2, edge3, edge4, start, end, id ){
 //functions as objetcts
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+
 //function constructor 
 		this.edge1 = edge1;
 		this.edge2 = edge2;
@@ -261,7 +267,7 @@
 	function displayGameOver(){
 
 		if(g_PlayerScore > g_ComputerScore){
-			msg = "Game Over. You Won!"; 
+			alert ("Game Over. You Won!"); 
 		}
 		else if(g_PlayerScore < g_ComputerScore)
 			msg = "Game Over. You Lost!"; 
