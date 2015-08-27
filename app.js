@@ -33,7 +33,7 @@
 	function InitializeBoard(){
 
 		ctx.fillStyle = fillStyles.dots;
-
+//context //canvas
 		var pointList = [];
 
 		for(var i=0; i< boardHeight; i++ ){
