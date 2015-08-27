@@ -2,7 +2,8 @@
 	
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
-//canvas context 
+//canvas context
+//create divs using javascript 
 	var dotRadius = 10;
 //make size of dots on board uniform 
 	var boardWidth = 5;
@@ -255,14 +256,15 @@
 		el.innerHTML = '<h2> You</h2><p>' + g_PlayerScore + '</p><h2> Computer </h2><p>' + g_ComputerScore + '</p>';
 
 	}
-
+//create an alert for the game to be over 
+//msg makes alert come up way too many times ??? * 
 	function displayGameOver(){
 
 		if(g_PlayerScore > g_ComputerScore){
-			msg = "Game Over. You Won"; 
+			msg = "Game Over. You Won!"; 
 		}
 		else if(g_PlayerScore < g_ComputerScore)
-			msg = "Game Over. You Lost"; 
+			msg = "Game Over. You Lost!"; 
 		else
 			msg = "Game Over. Its a tie!"; 
 
@@ -330,6 +332,8 @@
 
 		if(this.id.charAt(0) === 'h'){
 //know whether or not it is horizontal or vetical, strip the first letter 
+//id.character.at h or v 
+//char.at http://www.pageresource.com/jscript/jstring1.htm
 			var stringIndex = this.id.substring(1);
 			var index = Number(stringIndex);
 			if(horzEdgeList[index].isVisible === false){
