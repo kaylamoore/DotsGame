@@ -10,6 +10,8 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+
 .btn {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -30,6 +32,27 @@ body {
   left: 15%;
 }
 
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+#info {
+  background-color: #1e1b1e;
+  color: #fff;
+  width: 200px;
+  padding: 0 15px;
+  text-align: center;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  right: 15%;
+}
+
 .stitchedHorizontal {
    width: 95px;
    height: 8px;
@@ -41,4 +64,27 @@ body {
    text-shadow: -1px -1px #aa3030;
    opacity : 0;
    
+}
+
+.stitchedHorizontal:hover{
+
+  opacity: 0.75;
+}
+
+.stitchedVertical {
+   width: 8px;
+   height: 95px;
+   background: #ff0030;
+   color: #fff;
+   border: 1px dashed #fff;
+   border-radius: 2px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   opacity : 0;
+   
+}
+
+.stitchedVertical:hover{
+
+  opacity: 0.75;
 }
