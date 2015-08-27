@@ -33,6 +33,7 @@
 //colors so that can only refer to names later on 
 
 	function InitializeBoard(){
+		console.log("running InitializeBoard()")
 
 		ctx.fillStyle = fillStyles.dots;
 //context ctx every time it uses canvas //canvas
@@ -52,6 +53,7 @@
 				ctx.fill();
 				ctx.closePath();
 				pointList[i][j] = ({x: startX + j*100, y: startY + i*100});
+//the location where it starts in the point list 
 			}
 		}
 
@@ -59,6 +61,7 @@
 	}
 
 	function getCurrentColor(){
+		console.log("running getCurrentColor()")
 		if(player1IsPlaying) return fillStyles.player1;
 		else return fillStyles.player2;
 	}
@@ -67,6 +70,7 @@
 
 //?
 	function Edge(start, end){
+		console.log("running Edge()")
 		this.start = start;
 		this.end = end;
 		this.isVisible = false;
@@ -84,48 +88,59 @@
 	}
 
 	function Box(edge1, edge2, edge3, edge4, start, end, id ){
+		console.log("running Box()")
 //functions as objetcts
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
 
 //function constructor 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
 		this.edge1 = edge1;
+//this.edge identifying edge thtat has been clicked and defining edge 
+// ".this" http://hangar.runway7.net/javascript/guide
+//use function constructor to identify edge // give edge property ? 
 		this.edge2 = edge2;
 		this.edge3 = edge3;
 		this.edge4 = edge4;
 		this.start = start;
 		this.end = end;
-		this.id = id;
+		this.id = id; // ? 
 		this.owner = null;
+//edge of box must not have an owner -- null -- to be clicked and listen for event listener,
+//if not then a box can be clicked twice 
 
 		this.isReady = function(){
+			console.log("running Box.isReady()")
 
 			var count = this.edge1.isVisible + this.edge2.isVisible + this.edge3.isVisible + this.edge4.isVisible;
 			if(count === 3) return true;
 			else return false;
-
+//edge is ready to be filled when there is only one side  not visible 
 		}
 
 		this.autoComplete = function(){
+			console.log("running Box.autoComplete()")
 
 			this.edge1.isVisible = this.edge2.isVisible = this.edge3.isVisible = this.edge4.isVisible = true;
 			this.isComplete();
-
+//the box is complete when it checks all the edges 
 		}
 
 		this.isComplete = function(){
-			if(this.owner == null)
+			console.log("running Box.isComplete()")
+			if(this.owner == null) //not have an owner 
 			{
 				if(	this.edge1.isVisible && this.edge2.isVisible && this.edge3.isVisible && this.edge4.isVisible)
 				{
 
 						if(player1IsPlaying) g_PlayerScore++;
-					//player2 not computer
+					//player2 not computer //leaving as computer so i dont have to change other varis //increase score by 1 
 						else g_ComputerScore++; 
 					
 						this.owner = player1IsPlaying ? "PLAYER1" : "PLAYER2";
 //tern op 
 						//console.log("Box " + this.id + " is Complete");
 						return "checkForMore";
+			//are there other boxes to complete? check for box next door. dont know how to run function for it to check just the box next door
 				}
 				else return "no";
 			}
@@ -135,19 +150,23 @@
 		}
 
 		this.drawBox = function(){
+			console.log("running Box.drawBox()")
 				ctx.fillStyle = (this.owner === "PLAYER1") ? fillStyles.player1 : fillStyles.player2; 
+				//if the box is complete, fill it with player 1. is plaayer 1 playing? is so fillStyless.player1, if not fillStyles.play2
 				ctx.beginPath();
 				ctx.rect(this.start.x,this.start.y,DOTGAP,DOTGAP);
+				// ?
 				ctx.fill();	
 				ctx.closePath();
 				
 		}
 
-
+//?
 	}
 
 
 	function BuildHorzEdgeList(pointList){
+		console.log("running BuildHorzEdgeList()")
 
 		var edgeList = [];
 
@@ -164,9 +183,10 @@
 		return edgeList;
 
 	}
-
+//same thing but for veritcal 
 
 	function BuildVertEdgeList(pointList){
+		console.log("running BuildVertEdgeList()")
 
 		var edgeList = [];
 
@@ -185,16 +205,18 @@
 	}
 
 	function BuildBoxList(){
+		console.log("running BuildBoxList()")
 
 		var boxList = [];
 		var boxID = 0;
 //multiply how many rows x number of elements in the row, + all the items in the row before point, (x,y) location 
+// if it is a second one in a row, one row in fornt of it, it would be 3 + 1  so it would be 4 
 		for(var i=0; i< boardHeight - 1; i++ ){
 			for(var j=0; j < boardWidth - 1; j++){
 				var horzEdge1Idx = (i * (boardWidth - 1)) + j;
 //finding the edges, 2d rep 
 				var horzEdge2Idx = (i + 1)* (boardWidth - 1) + j;
-
+//have to figure out the location on the board. the math behind this  ^ 
 				var vertEdge1Idx = (j * (boardHeight - 1) + i);
 				
 
@@ -208,6 +230,8 @@
 //last line, canvas 
 //box ID, separates the boxes, indexing them 
 
+//need to know the diagonals so that it can create a square *** 
+
 				boxID++;
 //run through all the boxes
 			}
@@ -218,6 +242,7 @@
 
 
 	function checkForGameOver(){
+		console.log("running checkForGameOver()")
 		var gameOver = true;
 		for(var boxIdx = 0; boxIdx < boxList.length; boxIdx++){
 			if(boxList[boxIdx].owner == null){
@@ -234,7 +259,8 @@
 	}
 
 	function HuntForClosure(){
-
+		console.log("running HuntForClosure()")
+//if a box is just completed, then needs to make sure that there is not another box to be closed 
 		var closedNewBoxes = false;
 		for(var searchIdx = 0; searchIdx < boxList.length; searchIdx++){
 			
@@ -247,7 +273,7 @@
 		}
 
 		//if(!closedNewBoxes && !player1IsPlaying)
-		//	DisplayRandomEdge();
+		//DisplayRandomEdge();
 
 		displayScore();
 
@@ -256,6 +282,7 @@
 	}
 
 	function displayScore(){
+		console.log("running displayScore()")
 
 		var el = document.getElementById('info');
 		// Write the number into that element
@@ -265,20 +292,24 @@
 //create an alert for the game to be over 
 //msg makes alert come up way too many times ??? * 
 	function displayGameOver(){
+		console.log("running displayGameOver()")
 
 		if(g_PlayerScore > g_ComputerScore){
-			alert ("Game Over. You Won!"); 
+			alert("Game Over. You Won!"); 
 		}
+//if player score is more than computer score, alert that they wont 
 		else if(g_PlayerScore < g_ComputerScore)
-			msg = "Game Over. You Lost!"; 
+			alert("Game Over. You Lost!"); 
+//if computer score is greater than player score, alert that they won 
 		else
-			msg = "Game Over. Its a tie!"; 
-
-		alert(msg);
+			alert("Game Over. Its a tie!"); 
+//if it does not meeet either of these conditions (aka it is a tie), alert that it is a tie  V 
+		//alert(msg);
 
 	}
 
 	function PlayerMove(){
+		console.log("running PlayerMove()")
 
 		var win = false;
 
@@ -299,18 +330,19 @@
 		displayScore();
 
 		checkForGameOver();
-
+//check for game over every time boxes are complete 
 		return win;
 
 	}
 
 
 	function togglePlayer(){
+		console.log("running togglePlayer()")
 		player1IsPlaying = !player1IsPlaying;
 	}
 //simpler way to write x%2 using 'toggle'/flag 
 //player who completes a box needs to get to take another turn ***
-
+//do not know how to make take another turn after completing box?? 
 
 
 //gets called when you complete an edge 
@@ -318,6 +350,7 @@
 //http://www.w3schools.com/jsref/jsref_dowhile.asp
 //will always run when true ?
 	function nextMove(){
+		console.log("running nextMove()")
 		do{
 			var win = PlayerMove();
 		}while(win);
@@ -333,9 +366,10 @@
 	}
 
 	function toEdge(){
+		console.log("running toEdge()")
 
 		if (g_GameOver) return;
-
+//flag usage; when this condition becomes true 
 		if(this.id.charAt(0) === 'h'){
 //know whether or not it is horizontal or vetical, strip the first letter 
 //id.character.at h or v 
@@ -358,7 +392,7 @@
 		var parent = this.parentNode;
 		parent.removeChild(this);
 //delete div from DOM so that it is not selectable again when hover
-//must be on parent before removing child
+//must be on parent before removing child or else you would remove the thing that u are on 
 		nextMove();
 	}
 
@@ -370,21 +404,22 @@
 
 //dom manipulation 
 	function InitializeDOM(horzEdgeList, vertEdgeList){
-
+		console.log("running InitializeDOM()")
+//for each horizontal edge it is creating a new div 
 		displayScore();
 
 		for(var i = 0; i< horzEdgeList.length; i++){
 
 			var newDiv = document.createElement('div');
-
+//creates a div every time it clicks on an insibible edge 
 			newDiv.id = "h" + i;
-			
+//gives divs an individual ID each time they are clicked on in order, so it starts at h0 and continues upwards i++ ex 
 			newDiv.className = "stitchedHorizontal";
 			
 			newDiv.style.position = "absolute";
-			
+//gives all the divs an absolute position 			
 			newDiv.style.left = horzEdgeList[i].start.x;
-			
+//divs need to start at the start point x and y, definied up top 			
 			newDiv.style.top = horzEdgeList[i].start.y;
 			
 			newDiv.addEventListener('click', toEdge, false);
@@ -392,7 +427,7 @@
 			document.body.appendChild(newDiv);
 
 		}
-
+//same notes as above for these 
 		for(var i = 0; i< vertEdgeList.length; i++){
 
 			var newDiv = document.createElement('div');
