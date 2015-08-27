@@ -2,20 +2,24 @@
 	
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
-
+//canvas context 
 	var dotRadius = 10;
+//make size of dots on board uniform 
 	var boardWidth = 5;
 	var boardHeight = 5;
 //width x height of the board 
 	var startX = 200;
 	var startY = 100;
+//lowers the starting point so it is not in the corner
 	var DOTGAP = 100; 
-//layout
+//layout //evenly spaced dots not too close together 
 	var player1IsPlaying = true;
 	var g_PlayerScore = 0;
 	var g_ComputerScore = 0;
 	var g_GameOver = false;
 //flag
+//variable you define to have a value until a condition is true, and then the value is changed. allows checking of certain conditions while function happens 
+//http://stackoverflow.com/questions/17402125/what-is-a-flag-variable
 
 
 //object literal notation 
