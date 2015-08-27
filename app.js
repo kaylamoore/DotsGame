@@ -303,7 +303,12 @@
 //simpler way to write x%2 using 'toggle'/flag 
 //player who completes a box needs to get to take another turn ***
 
+
+
 //gets called when you complete an edge 
+//do-while loop
+//http://www.w3schools.com/jsref/jsref_dowhile.asp
+//will always run when true ?
 	function nextMove(){
 		do{
 			var win = PlayerMove();
