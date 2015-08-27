@@ -41,10 +41,12 @@
 
 			pointList.push(new Array());
 			
-//have to "push" a new array 
+//have to "push" a new array, no points given before this 
 			for(var j=0; j < boardWidth; j++){
+//supposed to use j ?? 
 				ctx.beginPath();
 				ctx.arc(startX + j*100, startY + i*100, dotRadius,0,2*Math.PI);
+				//how to make a circle/arc 
 				ctx.fill();
 				ctx.closePath();
 				pointList[i][j] = ({x: startX + j*100, y: startY + i*100});
