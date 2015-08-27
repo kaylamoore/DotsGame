@@ -28,7 +28,7 @@
 		player1 : "yellow",
 		player2 : "blue"
 	}
-
+//colors so that can only refer to names later on 
 
 	function InitializeBoard(){
 
