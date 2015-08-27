@@ -33,15 +33,15 @@
 	function InitializeBoard(){
 
 		ctx.fillStyle = fillStyles.dots;
-//context //canvas
+//context ctx every time it uses canvas //canvas
 		var pointList = [];
-
+//need to make a new empty array to hold all the points 
 		for(var i=0; i< boardHeight; i++ ){
 
 
 			pointList.push(new Array());
 			
-
+//have to "push" a new array 
 			for(var j=0; j < boardWidth; j++){
 				ctx.beginPath();
 				ctx.arc(startX + j*100, startY + i*100, dotRadius,0,2*Math.PI);
