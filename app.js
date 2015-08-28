@@ -345,24 +345,12 @@
 //do not know how to make take another turn after completing box?? 
 
 
-//gets called when you complete an edge 
-//do-while loop
-//http://www.w3schools.com/jsref/jsref_dowhile.asp
-//will always run when true ?
+//if it is a win do not toggle player 
 	function nextMove(){
 		console.log("running nextMove()")
-		do{
-			var win = PlayerMove();
-		}while(win);
-		
-		togglePlayer();
-		
-	   do{
-			var win = PlayerMove();
-		}while(win);
-		
-		
-		
+		if ( !PlayerMove() ){
+			togglePlayer();
+		}			
 	}
 
 	function toEdge(){
