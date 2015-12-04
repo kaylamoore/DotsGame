@@ -11,5 +11,11 @@ Game board and divs are made using canvas. <br>
 Alerts are used to notify the end of the game and who won. <br>
 Players moves appear in different colors. <br>
 <br>
-Installation Instructions<br>
-Load the game and you are ready to play. <br>
+
+Development<br>
+Uses HTML Canvas, CSS, Javascript, and jQuery. <br>
+<br>
+
+
+
+
